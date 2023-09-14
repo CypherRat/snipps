@@ -25,6 +25,4 @@ Follow these steps to use this extension:
 
 4. Navigate to the directory where you extracted the extension files, and select it.
 
-Your unpacked extension should now be loaded and its ID should appear in the list of extensions on the Extensions management page. You should also see it in your Chrome toolbar. If you make any changes to your extension's code, you can click the **Reload** button on your extension's card on the Extensions page to update it.
-
-Please note that unpacked extensions are intended for development and debugging. If you want to share your extension with others, you'll need to package it and submit it to the Chrome Web Store.
+Please note that unpacked extensions are intended for development and debugging.
