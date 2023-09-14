@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           })(savedCodes[i].code)
         );
 
-        codeBaseElement.appendChild(copyButton);
+        // codeBaseElement.appendChild(copyButton);
 
         savedCodesElement.appendChild(codeBaseElement);
       }
