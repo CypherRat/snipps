@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="libs/tailwind.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome.min.css" rel="stylesheet" />
+    <style>
+      body {
+        width: 400px;
+        height: 400px;
+        overflow: auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 10px;
+        color: antiquewhite;
+        /* background-color: black; */
+        background: linear-gradient(to bottom, #000000 0%, #000033 100%);
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+      }
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      header .title {
+        display: flex;
+        flex-direction: row;
+        gap: 7px;
+        align-items: center;
+      }
+      header .title img {
+        filter: invert(100%);
+      }
+
+      #createButton,
+      #saveButton {
+        justify-self: end;
+      }
+
+      #menu,
+      #create {
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow: auto;
+      }
+
+      #listView,
+      #createFields {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-height: 258px;
+      }
+
+      #savedCodes {
+        overflow: auto;
+      }
+      #buttonContainer {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #loadMoreButton {
+        margin-left: auto;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+      }
+
+      input[type="text"]::placeholder,
+      textarea::placeholder {
+        color: #777;
+      }
+
+      .codeBase {
+        width: 100%;
+        overflow: auto;
+      }
+
+      pre {
+        width: 100%;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+        max-height: 150px;
+        overflow: auto;
+      }
+
+      /* scrollbar*/
+
+      /* This applies to all scrollbars within .container */
+      *::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      *::-webkit-scrollbar-thumb {
+        background: #555;
+      }
+
+      /* Handle on hover */
+      *::-webkit-scrollbar-thumb:hover {
+        background: #999;
+      }
+    </style>
+    <script src="main.js"></script>
+  </head>
+  <body class="p-3">
+    <header>
+      <div class="title">
+        <img src="icon.png" width="25" />
+        <span class="font-bold text-xl tracking-wide text-red-50">Snipps</span>
+        <span class="font-thin text-sm uppercase text-slate-500"
+          >(dump your code)</span
+        >
+      </div>
+      <div class="remark uppercase font-medium text-slate-50">Made By Abhi</div>
+    </header>
+    <section class="content">
+      <div id="menu">
+        <h2 class="text-lg font-bold mb-2">Saved Snippets</h2>
+        <div id="listView">
+          <div id="savedCodes"></div>
+          <div id="buttonContainer">
+            <button
+              id="prevButton"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button
+              id="loadMoreButton"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Load More <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <button
+          id="createButton"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <i class="fas fa-plus"></i> New Snippet
+        </button>
+      </div>
+      <div id="create" style="display: none">
+        <h2 class="text-lg font-bold mb-2">Create a Snippet</h2>
+        <div id="createFields">
+          <textarea
+            id="codeArea"
+            placeholder="Dump your code here..."
+            class="border p-2 w-full"
+          ></textarea>
+          <input
+            type="text"
+            id="noteArea"
+            placeholder="Add a note (optional)"
+            class="border p-2 w-full"
+          />
+        </div>
+        <button
+          id="saveButton"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <i class="fas fa-save"></i> Save
+        </button>
+      </div>
+    </section>
+  </body>
+</html>

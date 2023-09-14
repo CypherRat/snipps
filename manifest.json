@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Snipps",
+  "description": "This extension allows you to save code snippets.",
+  "version": "3.0",
+  "action": {
+    "default_icon": {
+      "16": "icon.png"
+    },
+    "default_popup": "main.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "storage", "scripting"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'"
+  }
+}
