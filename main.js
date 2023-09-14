@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         codeBaseElement.appendChild(datetimeElement);
 
         var deleteButton = document.createElement("button");
-        deleteButton.innerHTML = '<i class="fas fa-trash"></i>Delete';
+        deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>Delete';
         deleteButton.className =
           "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded float-right";
 
@@ -94,9 +94,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
           "click",
           (function (index) {
             return function () {
-              savedCodes.splice(index, 1);
-              localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
-              displaySavedCodes();
+              var confirmation = confirm(
+                "Are you sure you want to delete this snippet?"
+              );
+              if (confirmation) {
+                savedCodes.splice(index, 1);
+                localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
+                displaySavedCodes();
+              }
             };
           })(i)
         );
@@ -104,7 +109,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         codeBaseElement.appendChild(deleteButton);
 
         var copyButton = document.createElement("button");
-        copyButton.innerHTML = '<i class="fas fa-copy"></i>Copy';
+        copyButton.innerHTML = '<i class="fa-solid fa-copy"></i>Copy';
         copyButton.className =
           "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded float-right mr-2";
 
